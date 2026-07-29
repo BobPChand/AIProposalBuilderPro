@@ -10,7 +10,9 @@
       "backgroundColor": "#0A1628",
       "resizeMode": "contain"
     },
-    "assetBundlePatterns": ["**/*"],
+    "assetBundlePatterns": [
+      "**/*"
+    ],
     "ios": {
       "supportsTablet": true,
       "bundleIdentifier": "ai.aiproposalbuilderpro.app",
@@ -29,7 +31,7 @@
     },
     "extra": {
       "eas": {
-        "projectId": ""
+        "projectId": "0b33986d-936c-46ab-ae2f-b4745e137229"
       }
     },
     "owner": "bc-canadian-usa-global-ventures-llc",

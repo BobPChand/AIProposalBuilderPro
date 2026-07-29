@@ -1,27 +1,26 @@
 {
   "cli": {
-    "version": ">= 12.0.0"
+    "version": ">= 12.0.0",
+    "appVersionSource": "local"
   },
   "build": {
     "development": {
       "developmentClient": true,
-      "distribution": "internal",
-      "image": "macos-sequoia-15.6-xcode-26.0"
+      "distribution": "internal"
     },
     "preview": {
-      "distribution": "internal",
-      "image": "macos-sequoia-15.6-xcode-26.0"
+      "distribution": "internal"
     },
     "production": {
-      "image": "macos-sequoia-15.6-xcode-26.0",
-      "autoIncrement": true
+      "autoIncrement": true,
+      "ios": {
+        "image": "macos-sequoia-15.6-xcode-26.0"
+      }
     }
   },
   "submit": {
     "production": {
-      "appleId": "bobchandroyalpacific@gmail.com",
-      "ascAppId": "",
-      "appleTeamId": "QU982T2P9S"
+      "ios": {}
     }
   }
 }
