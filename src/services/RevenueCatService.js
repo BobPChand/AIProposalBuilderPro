@@ -1,7 +1,7 @@
 import { Platform } from 'react-native';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 
-const API_KEY = Platform.OS === 'ios' ? 'appl_PLACEHOLDER_KEY' : 'goog_PLACEHOLDER_KEY';
+const API_KEY = Platform.OS === 'ios' ? 'appl_dFrPwoUprmGQcMcNebZvbYfWzxQ' : 'goog_PLACEHOLDER_KEY';
 const ENTITLEMENT_ID = 'pro';
 const STORAGE_KEY = 'proposal_pro_status';
 

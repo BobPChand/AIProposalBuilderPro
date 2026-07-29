@@ -85,7 +85,7 @@ export default function PaywallScreen() {
           <View style={styles.feature}><Ionicons name="checkmark-circle" size={20} color="#34C759" /><Text style={styles.featureText}>Priority AI processing</Text></View>
         </View>
 
-        <TouchableOpacity style={styles.planCard} onPress={() => handlePurchase('monthly')} disabled={loading}>
+        <TouchableOpacity style={styles.planCard} onPress={() => handlePurchase('$rc_monthly')} disabled={loading}>
           <View style={{ flex: 1 }}>
             <Text style={styles.planTitle}>Monthly</Text>
             <Text style={styles.planDesc}>Auto-renews monthly. Cancel anytime.</Text>
@@ -93,7 +93,7 @@ export default function PaywallScreen() {
           <Text style={styles.planPrice}>$14.99/mo</Text>
         </TouchableOpacity>
 
-        <TouchableOpacity style={[styles.planCard, styles.planCardBest]} onPress={() => handlePurchase('yearly')} disabled={loading}>
+        <TouchableOpacity style={[styles.planCard, styles.planCardBest]} onPress={() => handlePurchase('$rc_annual')} disabled={loading}>
           <View style={{ flex: 1 }}>
             <Text style={styles.planTitle}>Yearly</Text>
             <Text style={styles.planDesc}>Save 45%. Auto-renews annually.</Text>
