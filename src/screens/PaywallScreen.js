@@ -1,19 +1,40 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { View, Text, StyleSheet, ScrollView, TouchableOpacity, Alert, ActivityIndicator } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { Ionicons } from '@expo/vector-icons';
-import { purchasePackage, restorePurchases, checkProStatus } from '../services/RevenueCatService';
+import { purchasePackage, restorePurchases, checkProStatus, initPurchases } from '../services/RevenueCatService';
 
 export default function PaywallScreen() {
   const [isPro, setIsPro] = useState(false);
   const [loading, setLoading] = useState(false);
   const [checking, setChecking] = useState(true);
+  const [paywallAvailable, setPaywallAvailable] = useState(false);
+  const paywallRef = useRef(null);
 
   useEffect(() => {
     (async () => {
+      await initPurchases();
       const pro = await checkProStatus();
       setIsPro(pro);
       setChecking(false);
+
+      // Check if RevenueCat paywall is available
+      try {
+        const { default: RNPurchases } = await import('react-native-purchases');
+        const offerings = await RNPurchases.getOfferings();
+        if (offerings.current && offerings.current.availablePackages.length > 0) {
+          // Try to load the RevenueCat Paywall UI
+          try {
+            const { default: RNPurchasesUI } = await import('react-native-purchases-ui');
+            setPaywallAvailable(true);
+          } catch (e) {
+            // Paywall UI SDK not available — use hand-coded fallback
+            setPaywallAvailable(false);
+          }
+        }
+      } catch (e) {
+        console.log('Offerings check failed:', e);
+      }
     })();
   }, []);
 
@@ -71,6 +92,36 @@ export default function PaywallScreen() {
     );
   }
 
+  // Try RevenueCat Paywall UI first
+  if (paywallAvailable) {
+    try {
+      const { PaywallView } = require('react-native-purchases-ui');
+      return (
+        <SafeAreaView style={styles.container}>
+          <PaywallView
+            ref={paywallRef}
+            style={styles.paywallView}
+            onPurchaseCompleted={(event) => {
+              setIsPro(true);
+              Alert.alert('Success', 'You are now a Pro member!');
+            }}
+            onRestoreCompleted={(event) => {
+              if (event.customerInfo?.entitlements?.active?.pro) {
+                setIsPro(true);
+                Alert.alert('Success', 'Your purchases have been restored.');
+              } else {
+                Alert.alert('No Purchases', 'No previous purchases were found.');
+              }
+            }}
+          />
+        </SafeAreaView>
+      );
+    } catch (e) {
+      // Fall through to hand-coded paywall
+    }
+  }
+
+  // Hand-coded fallback paywall
   return (
     <SafeAreaView style={styles.container}>
       <ScrollView contentContainerStyle={styles.scroll}>
@@ -117,6 +168,7 @@ export default function PaywallScreen() {
 const styles = StyleSheet.create({
   container: { flex: 1, backgroundColor: '#F2F4F8' },
   scroll: { padding: 20, paddingBottom: 40 },
+  paywallView: { flex: 1 },
   header: { fontSize: 24, fontWeight: 'bold', color: '#1C1C1E', marginTop: 10, textAlign: 'center' },
   sub: { fontSize: 14, color: '#8E8E93', textAlign: 'center', marginTop: 6, marginBottom: 24 },
   features: { backgroundColor: '#fff', borderRadius: 16, padding: 18, marginBottom: 20, gap: 12 },
