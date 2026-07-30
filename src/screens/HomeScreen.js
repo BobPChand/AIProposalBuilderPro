@@ -15,7 +15,7 @@ export default function HomeScreen({ navigation }) {
           <Text style={styles.subtitle}>Win more clients with AI-crafted proposals in seconds</Text>
         </View>
 
-        <TouchableOpacity style={styles.actionCard} onPress={() => navigation.navigate('Proposals')}>
+        <TouchableOpacity style={styles.actionCard} onPress={() => navigation.navigate('Proposals', { mode: 'proposal' })}>
           <View style={[styles.actionIcon, { backgroundColor: '#EBF2FF' }]}>
             <Ionicons name="document-text" size={22} color="#4A90E2" />
           </View>
@@ -26,7 +26,7 @@ export default function HomeScreen({ navigation }) {
           <Ionicons name="chevron-forward" size={20} color="#C7C7CC" />
         </TouchableOpacity>
 
-        <TouchableOpacity style={styles.actionCard} onPress={() => navigation.navigate('Proposals', { screen: 'pitch' })}>
+        <TouchableOpacity style={styles.actionCard} onPress={() => navigation.navigate('Proposals', { mode: 'pitch' })}>
           <View style={[styles.actionIcon, { backgroundColor: '#FFF3E8' }]}>
             <Ionicons name="rocket" size={22} color="#FF9500" />
           </View>
