@@ -21,7 +21,8 @@
     "submit": {
         "production": {
             "ios": {
-                "ascAppId": "6795848281"
+                "ascAppId": "6795848281",
+                "appleId": "bobchandroyalpacific@gmail.com"
             }
         }
     }

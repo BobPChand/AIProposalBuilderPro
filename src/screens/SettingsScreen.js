@@ -40,9 +40,15 @@ export default function SettingsScreen({ navigation }) {
           <Ionicons name="chevron-forward" size={18} color="#C7C7CC" />
         </TouchableOpacity>
 
-        <TouchableOpacity style={styles.item} onPress={() => Linking.openURL('https://aibusinessassistant.ai')}>
-          <Ionicons name="globe" size={22} color="#4A90E2" />
-          <Text style={styles.itemText}>Visit Website</Text>
+        <TouchableOpacity style={styles.item} onPress={() => Linking.openURL('https://base44.app/api/apps/6a336a00b083ccbe02ccfade/files/mp/public/6a336a00b083ccbe02ccfade/aba992d35_privacy_policy_proposal_builder.html')}>
+          <Ionicons name="shield-checkmark" size={22} color="#4A90E2" />
+          <Text style={styles.itemText}>Privacy Policy</Text>
+          <Ionicons name="chevron-forward" size={18} color="#C7C7CC" />
+        </TouchableOpacity>
+
+        <TouchableOpacity style={styles.item} onPress={() => Linking.openURL('https://base44.app/api/apps/6a336a00b083ccbe02ccfade/files/mp/public/6a336a00b083ccbe02ccfade/7b4442811_eula_proposal_ai.html')}>
+          <Ionicons name="document-text" size={22} color="#4A90E2" />
+          <Text style={styles.itemText}>Terms of Use</Text>
           <Ionicons name="chevron-forward" size={18} color="#C7C7CC" />
         </TouchableOpacity>
 

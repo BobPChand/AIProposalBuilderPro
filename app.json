@@ -1,44 +1,44 @@
 {
-    "expo": {
-        "name": "AI Proposal Builder Pro",
-        "slug": "ai-proposal-builder-pro",
-        "version": "1.0.0",
-        "orientation": "portrait",
-        "icon": "./assets/app-icon.png",
-        "userInterfaceStyle": "light",
-        "splash": {
-            "backgroundColor": "#0A1628",
-            "resizeMode": "contain"
-        },
-        "assetBundlePatterns": [
-            "**/*"
-        ],
-        "ios": {
-            "supportsTablet": true,
-            "bundleIdentifier": "ai.aiproposalbuilderpro.app",
-            "buildNumber": "7",
-            "icon": "./assets/app-icon.png",
-            "infoPlist": {
-                "ITSAppUsesNonExemptEncryption": false
-            }
-        },
-        "android": {
-            "adaptiveIcon": {
-                "backgroundColor": "#0A1628"
-            },
-            "package": "ai.aiproposalbuilderpro.app"
-        },
-        "extra": {
-            "eas": {
-                "projectId": "0b33986d-936c-46ab-ae2f-b4745e137229"
-            }
-        },
-        "owner": "bc-canadian-usa-global-ventures-llc",
-        "updates": {
-            "url": ""
-        },
-        "runtimeVersion": {
-            "policy": "sdkVersion"
-        }
+  "expo": {
+    "name": "AI Proposal Builder Pro",
+    "slug": "ai-proposal-builder-pro",
+    "version": "1.0.0",
+    "orientation": "portrait",
+    "icon": "./assets/app-icon.png",
+    "userInterfaceStyle": "light",
+    "splash": {
+      "backgroundColor": "#0A1628",
+      "resizeMode": "contain"
+    },
+    "assetBundlePatterns": [
+      "**/*"
+    ],
+    "ios": {
+      "supportsTablet": true,
+      "bundleIdentifier": "ai.aiproposalbuilderpro.app",
+      "buildNumber": "8",
+      "icon": "./assets/app-icon.png",
+      "infoPlist": {
+        "ITSAppUsesNonExemptEncryption": false
+      }
+    },
+    "android": {
+      "adaptiveIcon": {
+        "backgroundColor": "#0A1628"
+      },
+      "package": "ai.aiproposalbuilderpro.app"
+    },
+    "extra": {
+      "eas": {
+        "projectId": "0b33986d-936c-46ab-ae2f-b4745e137229"
+      }
+    },
+    "owner": "bc-canadian-usa-global-ventures-llc",
+    "updates": {
+      "url": ""
+    },
+    "runtimeVersion": {
+      "policy": "sdkVersion"
     }
+  }
 }
